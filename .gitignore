@@ -6,7 +6,7 @@ angular-client/node_modules/
 api/uploads
 
 /node_modules/
-/key/
+
 
 # Compiled output
 /**/dist
