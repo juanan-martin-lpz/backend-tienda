@@ -143,8 +143,8 @@ router.post('/', (req, res) => {
 
   let body = req.body;
 
-
   if (!tools.checkBody(Usuarios, body)) {
+
     return res.status(404).json({
       status: false,
       error: 'Formato de registro invalido'
@@ -157,17 +157,16 @@ router.post('/', (req, res) => {
 
   negocio.insertarUsuario(usuario)
     .then( respuesta => {
-//      console.log(respuesta);
-
       res.status(200).json({
         status: true,
         usuario: respuesta
       });
     })
     .catch( err => {
+      console.log(err);
       res.status(500).json({
         status: false,
-        error: err
+        errors: err
       });
     });
 });

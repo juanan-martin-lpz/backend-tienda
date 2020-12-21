@@ -16,6 +16,8 @@ class Usuarios {
     this.rol = rol;
     this.idioma = idioma;
     this.direccion = direccion;
+    this.cesta = [];
+    this.historicoCesta = [];
   }
 }
 

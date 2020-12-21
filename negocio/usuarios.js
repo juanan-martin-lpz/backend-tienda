@@ -198,12 +198,14 @@ exports.insertarUsuario = function(usuario) {
 
     usuarioNoExiste(usuario)
       .then(user => {
-        return validarNuevoUsuario(user);
+        validarNuevoUsuario(user)
+          .catch(errores => {
+            reject(errores);
+          });
       })
       .then(u => {
-        let usr = new Usuarios();
 
-//        console.log(usr);
+        let usr = new Usuarios();
 
         usr.nombre = u.nombre;
         usr.apellidos = u.apellidos;
@@ -217,15 +219,10 @@ exports.insertarUsuario = function(usuario) {
         usr.email = u.email;
         usr.idioma = u.idioma;
 
-//        console.log(usr);
-
         return usr.save();
-        //Usuarios.create(u);
       })
       .then(resultado => {
         // Resolvemos la promesa
-//        console.log(resultado);
-
         accept(resultado);
       })
       .catch ( errors => {

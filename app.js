@@ -44,7 +44,7 @@ function startServer() {
 
   // Rutas
   app.use('/login', loginRoutes);
-  app.use('/usuarios', checkToken, usuariosRoutes);
+  app.use('/usuarios', usuariosRoutes);
   app.use('/store', checkToken);  // Faltan las rutas
   app.use('/productos', productosRoutes);  // Faltan las rutas
   app.use('/pedidos', checkToken, pedidosRoutes);  // Faltan las rutas
